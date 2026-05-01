@@ -1,0 +1,47 @@
+{
+  "name": "@mariozechner/pi-agent-service",
+  "version": "0.70.2",
+  "description": "Docker-packaged coding agent service with REST API, WebSocket, and observable logging",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "public", "CHANGELOG.md"],
+  "scripts": {
+    "clean": "shx rm -rf dist public/dist",
+    "build": "tsgo -p tsconfig.build.json && node scripts/build-webui.mjs",
+    "dev": "tsgo -p tsconfig.build.json --watch --preserveWatchOutput",
+    "prepublishOnly": "npm run clean && npm run build",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@mariozechner/pi-agent-core": "^0.70.2",
+    "@mariozechner/pi-ai": "^0.70.2",
+    "@mariozechner/pi-coding-agent": "^0.70.2",
+    "better-sqlite3": "^11.8.0",
+    "express": "^4.21.0",
+    "ws": "^8.18.0",
+    "typebox": "^1.1.24"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^5.0.0",
+    "@types/ws": "^8.5.0",
+    "@types/node": "^24.3.0",
+    "lit": "^3.3.0",
+    "typescript": "^5.7.3",
+    "shx": "^0.4.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "keywords": ["coding-agent", "service", "api", "docker"],
+  "author": "Mario Zechner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badlogic/pi-mono.git",
+    "directory": "packages/agent-service"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

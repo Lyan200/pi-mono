@@ -1,0 +1,5 @@
+data/
+dist/
+public/dist/
+node_modules/
+*.db
